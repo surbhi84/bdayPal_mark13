@@ -8,12 +8,21 @@ calcBtn.addEventListener("click",clickHandler)
 
 function clickHandler(){
 const input = inputVal();
-console.log(input.dobVal)
 
+if(inputValidation(input)){
+    console.log("success")
+}
 }
 
 function inputVal(){
     return { dobVal : dob.value}
 }
 
-
+function inputValidation(input){
+    console.log(input.dobVal)
+ if(input.dobVal==  "") {
+      outputDiv.innerText = "Please enter a Date.";
+ }
+ else{
+    return true; }
+}
