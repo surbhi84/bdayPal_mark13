@@ -7,10 +7,9 @@ calcBtn.addEventListener("click", clickHandler);
 function clickHandler() {
   const dobVal = inputVal();
 
-  if (inputValidation(input)) {
-   
-
-    checkPalindrome(input);
+  if (inputValidation(dobVal)) {
+    const result = datePalindrome(dobVal);
+    output(result);
   } else {
     errorAlert();
   }
@@ -20,16 +19,16 @@ function inputVal() {
   return dob.value;
 }
 
-function inputValidation(input) {
-  if (input.dobVal == "") return false;
+function inputValidation(dobVal) {
+  if (dobVal == "") return false;
   return true;
 }
 
-function inputForm(){
-const date = 
+function datePalindrome(dobVal) {
+  const date = dobVal.replaceAll("-", "");
+  console.log(date);
+  return checkPalindrome(date);
 }
-
-console.log(checkPalindrome("mom"));
 
 function checkPalindrome(str) {
   let reverse = "";
@@ -43,4 +42,12 @@ function checkPalindrome(str) {
 
 function errorAlert() {
   outputDiv.innerText = "Please enter a Date.";
+}
+
+function output(result) {
+  if (result == true) {
+    outputDiv.innerText = "Congratulations your BIRTHDAY IS A PALINDROME";
+  } else {
+    outputDiv.innerText = "OOPSS your Birthday is not a PALINDROME";
+  }
 }
