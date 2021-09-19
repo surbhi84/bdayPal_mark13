@@ -8,7 +8,8 @@ function clickHandler() {
   const dobVal = inputVal();
 
   if (inputValidation(dobVal)) {
-    const result = datePalindrome(dobVal);
+    const date = dateString(dobVal);
+    const result = palindrome(date);
     output(result);
   } else {
     errorAlert();
@@ -24,18 +25,18 @@ function inputValidation(dobVal) {
   return true;
 }
 
-function datePalindrome(dobVal) {
+function dateString(dobVal) {
   const date = dobVal.replaceAll("-", "");
-  console.log(date);
-  return checkPalindrome(date);
+  console.log("date", date);
+  return date;
 }
 
-function checkPalindrome(str) {
+function palindrome(str) {
   let reverse = "";
   for (let i = str.length - 1; i >= 0; i--) {
     reverse += str[i];
   }
-  console.log(reverse);
+  console.log("string", str, "reverse", reverse);
   if (reverse == str) return true;
   return false;
 }
