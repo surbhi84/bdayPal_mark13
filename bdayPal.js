@@ -41,6 +41,20 @@ function palindrome(str) {
   return false;
 }
 
+function formats(date) {
+  let year = date.slice(0, 4);
+  let month = date.slice(4, 6);
+  let day = date.slice(6, 8);
+  console.log("year", year, "month", month, "day", day);
+
+  let YYYYDDMM = year + day + month;
+  let DDMMYYYY = day + month + year;
+  let DDMMYY = day + month + year.slice(2, 4);
+  let MMDDYY = month + day + year.slice(2, 4);
+  let YYMMDD = year.slice(2, 4) + month + day;
+  return [date, YYYYDDMM, DDMMYYYY, DDMMYY, MMDDYY, YYMMDD];
+}
+
 function errorAlert() {
   outputDiv.innerText = "Please enter a Date.";
 }
