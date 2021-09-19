@@ -55,6 +55,14 @@ function formats(date) {
   return [date, YYYYDDMM, DDMMYYYY, DDMMYY, MMDDYY, YYMMDD];
 }
 
+function checkPalindrome(date) {
+  let formatArray = formats(date);
+  for (let i = 0; i < formatArray.length; i++) {
+    if (palindrome(formatArray[i])) return true;
+  }
+  return false;
+}
+
 function errorAlert() {
   outputDiv.innerText = "Please enter a Date.";
 }
