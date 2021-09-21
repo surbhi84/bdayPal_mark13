@@ -75,3 +75,41 @@ function output(result, dobVal) {
     outputDiv.innerText = `OOPSS your Birthday is not a PALINDROME`; //backticks are used for formatted strings
   }
 }
+
+function nearestPalindrome(date) {
+  let i = 1;
+  while (0 == 0) {
+    if (i == 1000) {
+      break;
+    }
+    let a = checkPalindrome(dateString(dateManipulate(date, i)));
+    let b = checkPalindrome(dateString(dateManipulate(date, -1 * i)));
+    if (a.bool == true) {
+      console.log(a.format, dateManipulate(date, i));
+
+      return dateManipulate(date, i);
+    }
+    if (b.bool == true) {
+      console.log(b.format, dateManipulate(date, -1 * i));
+
+      return dateManipulate(date, -1 * i);
+    }
+    i++;
+  }
+}
+
+function dateManipulate(date, n) {
+  let mydate;
+  date = new Date(date); // Date() converts date to a particular format
+  date.setDate(date.getDate() + n); //setDate() manipulates date itself
+
+  if (date.getDate() < 10 && date.getMonth() + 1 < 10) {
+    mydate = `${date.getFullYear()}-0${date.getMonth() + 1}-0${date.getDate()}`;
+  } else if (date.getDate() < 10) {
+    mydate = `${date.getFullYear()}-${date.getMonth() + 1}-0${date.getDate()}`;
+  } else if (date.getMonth() + 1 < 10) {
+    mydate = `${date.getFullYear()}-0${date.getMonth() + 1}-${date.getDate()}`;
+  } else
+    mydate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+  return mydate;
+}
