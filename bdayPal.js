@@ -73,8 +73,12 @@ function output(result, dobVal) {
     outputDiv.innerText = `Congratulations your BIRTHDAY IS A PALINDROME in ${result.format} format.`;
   } else {
     outputDiv.innerText = `OOPSS your Birthday is not a PALINDROME`; //backticks are used for formatted strings
+
     outputDiv.innerText = `The nearest Palindrome is ${(nearPal =
-      nearestPalindrome(dobVal))}`;
+      nearestPalindrome(dobVal))} you missed it by ${daysMissed(
+      nearPal,
+      dobVal
+    )} days`;
   }
 }
 
@@ -114,4 +118,17 @@ function dateManipulate(date, n) {
   } else
     mydate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
   return mydate;
+}
+
+function daysMissed(nearPal, dobVal) {
+  nearestPal = new Date(nearPal);
+  bdayDate = new Date(dobVal);
+  console.log(nearestPal, bdayDate);
+  diffTime = nearestPal.getTime() - bdayDate.getTime();
+  diffDays = diffTime / (1000 * 3600 * 24);
+  console.log(diffDays);
+  if (diffDays < 0) {
+    diffDays *= -1;
+  }
+  return diffDays;
 }
