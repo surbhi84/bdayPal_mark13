@@ -9,8 +9,8 @@ function clickHandler() {
 
   if (inputValidation(dobVal)) {
     const date = dateString(dobVal);
-    const result = palindrome(date);
-    output(result);
+    const result = checkPalindrome(date);
+    output(result, dobVal);
   } else {
     errorAlert();
   }
@@ -27,7 +27,6 @@ function inputValidation(dobVal) {
 
 function dateString(dobVal) {
   const date = dobVal.replaceAll("-", "");
-  console.log("date", date);
   return date;
 }
 
@@ -36,7 +35,6 @@ function palindrome(str) {
   for (let i = str.length - 1; i >= 0; i--) {
     reverse += str[i];
   }
-  console.log("string", str, "reverse", reverse);
   if (reverse == str) return true;
   return false;
 }
@@ -45,32 +43,35 @@ function formats(date) {
   let year = date.slice(0, 4);
   let month = date.slice(4, 6);
   let day = date.slice(6, 8);
-  console.log("year", year, "month", month, "day", day);
 
+  let YYYYMMDD = date;
   let YYYYDDMM = year + day + month;
   let DDMMYYYY = day + month + year;
   let DDMMYY = day + month + year.slice(2, 4);
   let MMDDYY = month + day + year.slice(2, 4);
   let YYMMDD = year.slice(2, 4) + month + day;
-  return [date, YYYYDDMM, DDMMYYYY, DDMMYY, MMDDYY, YYMMDD];
+  return { YYYYMMDD, YYYYDDMM, DDMMYYYY, DDMMYY, MMDDYY, YYMMDD };
 }
 
 function checkPalindrome(date) {
-  let formatArray = formats(date);
+  let dateFormat = formats(date);
+  let formatArray = Object.keys(dateFormat); //returns an array of keys stored as strings
   for (let i = 0; i < formatArray.length; i++) {
-    if (palindrome(formatArray[i])) return true;
+    if (palindrome(dateFormat[formatArray[i]]))
+      return { bool: true, format: formatArray[i] };
   }
-  return false;
+  return { bool: false };
 }
 
 function errorAlert() {
   outputDiv.innerText = "Please enter a Date.";
 }
 
-function output(result) {
-  if (result == true) {
-    outputDiv.innerText = "Congratulations your BIRTHDAY IS A PALINDROME";
+function output(result, dobVal) {
+  var nearPal;
+  if (result.bool == true) {
+    outputDiv.innerText = `Congratulations your BIRTHDAY IS A PALINDROME in ${result.format} format.`;
   } else {
-    outputDiv.innerText = "OOPSS your Birthday is not a PALINDROME";
+    outputDiv.innerText = `OOPSS your Birthday is not a PALINDROME`; //backticks are used for formatted strings
   }
 }
