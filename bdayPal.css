@@ -56,11 +56,35 @@ input {
   padding: 0.5rem;
   border-radius: 5px;
   font-size: 1.2rem;
-  font-family: ;
 }
 
 .calc-btn:hover {
   transform: scale(1.1);
   transition: ease-in-out;
   transition-duration: 15ms;
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 1rem;
+  border-radius: 15px;
+  background-color: #dbe6f6;
+  height: 10rem;
+  width: 40vw;
+}
+
+.output-div {
+  color: #c5796d;
+  font-size: 2rem;
+  text-align: center;
+  width: 60vw;
+}
+
+ul {
+  font-size: 1.2rem;
+  padding-left: 0;
+  text-align: center;
 }
