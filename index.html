@@ -12,13 +12,23 @@
     <div class="main">
       <h1>Give me your BirthDate and we'll see if it's a palindrome.</h1>
 
+      <ul>
+        This web checks palindrome in these date formats
+        <li>YYYYMMDD</li>
+        <li>YYYYDDMM</li>
+        <li>DDMMYYYY</li>
+        <li>DDMMYY</li>
+        <li>MMDDYY</li>
+        <li>YYMMDD</li>
+      </ul>
+
       <div class="tab">
-        <label for="b-date">BirthDate</label>
+        <label for="b-date">Enter BirthDate:</label>
         <input type="date" id="b-date" placeholder="Enter you BirthDate" />
 
         <button class="calc-btn">Click!</button>
-        <div class="output-div"></div>
       </div>
+      <div class="output-div"></div>
     </div>
   </body>
   <script src="bdayPal.js" type="text/javascript"></script>
