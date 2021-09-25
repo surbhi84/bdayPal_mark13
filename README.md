@@ -1,4 +1,4 @@
-# bdayPal
+# BdayPal
 A web application that tells you if your Birthdate makes a palindrome and checks it in different date formats too.
 
 ## Features
