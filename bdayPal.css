@@ -89,3 +89,38 @@ ul {
   padding-left: 0;
   text-align: center;
 }
+
+footer {
+  /* padding-top: 3rem; */
+  margin: 0;
+  text-align: center;
+
+  background: -webkit-linear-gradient(
+    to right,
+    #c5796d,
+    #dbe6f6
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #c5796d, #dbe6f6);
+}
+
+.li {
+  display: inline;
+  list-style: none;
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+
+.ul {
+  text-align: center;
+  padding-left: 0;
+  padding: 1rem;
+  margin-top: 0;
+}
+
+i {
+  color: azure;
+}
+
+#legacyText {
+  color: azure;
+}
