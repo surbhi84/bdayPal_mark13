@@ -72,7 +72,7 @@ function output(result, dobVal) {
   if (result.bool == true) {
     outputDiv.innerText = `Congratulations your BIRTHDAY IS A PALINDROME in ${result.format} format.`;
   } else {
-    outputDiv.innerText = `OOPSS your Birthday is not a PALINDROME.The nearest Palindrome is ${(nearPal =
+    outputDiv.innerText = `OOPSS your Birthday is not a PALINDROME.The nearest palindrome is ${(nearPal =
       nearestPalindrome(dobVal))} and you missed it by ${daysMissed(
       nearPal,
       dobVal
